@@ -1,0 +1,14 @@
+# Western Boot Collection
+Gallery of all the boots you own/admire
+
+## How the App Works
+Add an 'URL' of a pair of boots you like along with a 'title' and add it to the the collection! 
+
+## Description
+This is my personal phase 1 project for flatiron final, Texas edition. I love boots and own several pairs, here the user can show off what they got/want.
+The backend of the project is mocked up by a json server, the user then is free to add as many boots as they like to this gallery. If the user loses the taste for a certian style of boots they can simply delete it and it will be removed from the mock database. Give it a try!
+
+## Project Content
+Files to build project: js/html/css-style/json.
+Events Listeners: 'DOMContentLoaded','Click', 'Submit'
+Array Method executed: forEach()
