@@ -1,0 +1,40 @@
+{
+    "boots": [
+      {
+        "id": 1,
+        "name": "Ostrich Boots",
+        "color": "Cherry",
+        "image": "https://www.countryoutfitter.com/on/demandware.static/-/Sites-master-product-catalog-shp/default/dwda0737c9/images/731/066731_87_P1.JPG"
+      },
+      {
+        "id": 2,
+        "name": "Alligator Boots",
+        "color": "Brown",
+        "image": "https://www.bootbarn.com/on/demandware.static/-/Sites-master-product-catalog-shp/default/dw47639dc5/images/C55/034C55_47_P1.JPG"
+      },
+      {
+        "id": 3,
+        "name": "Piraucu Boots",
+        "color": "Cognac",
+        "image": "https://cdn.shopify.com/s/files/1/0520/8404/8055/products/IMG_5058_grande.jpg?v=1626196621"
+      },
+      {
+        "id": 4,
+        "name": "Elephant Boots",
+        "color": "Safari Cognac",
+        "image": "https://www.bootamerica.com/merchant2/graphics/00000001/BLJ867-7599-01.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Shark Boots",
+        "color": "Brown",
+        "image": "https://www.bootbarn.com/dw/image/v2/BCCF_PRD/on/demandware.static/-/Sites-master-product-catalog-shp/default/dwcd3052a9/images/A93/034A93_47_P1.JPG?sw=980&sh=980&sm=fit"
+      },
+      {
+        "id": 6,
+        "name": "Leather Boots",
+        "color": "Black",
+        "image": "https://www.sheplers.com/dw/image/v2/BBCT_PRD/on/demandware.static/-/Sites-master-product-catalog-shp/default/dw61b203a6/images/006/2000254006_001_P1.JPG?sw=980&sh=980&sm=fit"
+      }
+    ]
+  }
