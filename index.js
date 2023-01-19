@@ -1,20 +1,6 @@
-const addBoot = false 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const addBtn = document.querySelector('#new-boots-btn')
-    const bootsContainer = document.getElementsByClassName('boots-container')
 
-    //tucks form away untill clicked
-    addBtn.addEventListener('click', () => {
-        addBoot= !addBoot
-        if (addBoot) {
-            bootsContainer.style.display = 'block'
-        } else {
-            bootsContainer.style.display = 'none'
-            }
-        }
-    )
-})
+// document.addEventListener('DOMContentLoaded', () => {
 
 
     //get all data of boots JSON
@@ -23,5 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then (bootData => bootData.forEach (bootObj => {
             createBootCard(bootObj)
         }))
+
 
 
