@@ -15,33 +15,68 @@
 
     function createBootCard(bootObj) {
         let div = document.createElement('div')
-        div.className = 'card'
+            div.className = 'card'
 
         let h3 = document.createElement('h3')
-        h3.innerText= bootObj.name 
+            h3.innerText= bootObj.name 
 
         let img = document.createElement('img')
-        img.src = bootObj.img
-        img.className = 'boots-avatar'
+            img.src = bootObj.img
+            img.className = 'boots-avatar'
 
         let p = document.createElement('p')
-        p.textContent = bootObj.color
+            p.textContent = bootObj.color
 
         //a remove boots button
         let btn = document.querySelector('button')
-        btn.className = 'remove-button'
-        btn.id = bootObj.id
-        btn.textContent = 'remove'
-        btn.addEventListener('click', () => {
+             btn.className = 'remove-button'
+             btn.id = bootObj.id
+            btn.textContent = 'remove'
+             btn.addEventListener('click', () => {
             id.remove()
-            patchBoots(bootObj)
+            patchBootObj(bootObj)
         })
         div.append(btn)
 
         let bootCollection = document.querySelector('#boots-collection')
-        div.append(h3,img,p,btn)
-        bootCollection.append(div)
-
-        
+            div.append(h3,img,p,btn)
+             bootCollection.append(div)
     }
+
+        let submitBoots = document.querySelector('form')
+            submitBoots.addEventListener('submit', createNewBootObj)
+            function createNewBootObj(e) {
+            let newBootObj = {
+                'name' : e.target.name.value ,
+                'color' : e.target.color.value ,
+                'image' : e.target.image.value ,
+
+            }
+            submitNewBootObj(newBootObj)
+        }
+
+        function submitNewBootObj(newBootObj) {
+            fetch('http://localhost:3000/boots', {
+                method: 'POST' ,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept:'application/json' ,
+                },
+                body:JSON.stringify(newBootObj)
+            })
+            .then(r => r.json())
+            .then((bootData) => createBootCard(bootData))
+        }
+
+        function patchBootObj(bootObj) {
+            fetch(`http://localhost:3000/boots${bootObj.id}`, {
+                method: 'PATCH' ,
+                headers: {
+                    'Content-type': 'application/json' ,
+                    Accept:'appliction/json' ,
+                },
+                body:JSON.stringify(bootObj)
+            })
+            console.log(patchBootObj)
+        }
 
