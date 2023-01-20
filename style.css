@@ -1,6 +1,25 @@
-.background{
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+
+.boots-header{
+    text-align: right;
+    color: rgb(0, 0, 0);
+    border-color: black;
 }
 
+.add-boots-form{
+  
+}
+
+body {
+    background-size: cover ;
+    background-repeat:no-repeat ;
+    background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/08/Country-Road-Western-Background.jpg)
+}
+
+.input-text {
+    border-radius: 5px;
+    height: 1rem;
+    width: 18%;
+    font-size: 18px;
+    font-family: monospace;
+    margin: 3px;
+}
