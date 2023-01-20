@@ -1,8 +1,8 @@
 
 
-document.addEventListener('DOMContentLoaded', (getBoots()) => {
+// document.addEventListener('DOMContentLoaded', (getBoots()) => {
 
-})
+// })
 
     //get all data of boots JSON
     function getBoots() {
@@ -25,7 +25,23 @@ document.addEventListener('DOMContentLoaded', (getBoots()) => {
         img.className = 'boots-avatar'
 
         let p = document.createElement('p')
-        p.textContent = 
+        p.textContent = bootObj.color
 
+        //a remove boots button
+        let btn = document.querySelector('button')
+        btn.className = 'remove-button'
+        btn.id = bootObj.id
+        btn.textContent = 'remove'
+        btn.addEventListener('click', () => {
+            id.remove()
+            patchBoots(bootObj)
+        })
+        div.append(btn)
+
+        let bootCollection = document.querySelector('#boots-collection')
+        div.append(h3,img,p,btn)
+        bootCollection.append(div)
+
+        
     }
 

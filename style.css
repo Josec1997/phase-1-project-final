@@ -1,12 +1,9 @@
 
-.boots-header{
-    text-align: right;
+#boots-header{
+    text-align: center;
     color: rgb(0, 0, 0);
     border-color: black;
-}
-
-.add-boots-form{
-  
+    font-size: x-large;
 }
 
 body {
@@ -23,3 +20,17 @@ body {
     font-family: monospace;
     margin: 3px;
 }
+
+.submit {
+    position: relative;
+    background-color: #8e500a;
+    border-radius: 5px;
+    height: 1.5rem;
+    width: max-content;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    justify-self: center;
+    font-family: monospace;
+    margin: 3px;
+}
+
