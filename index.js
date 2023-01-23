@@ -1,70 +1,73 @@
-
-
-document.addEventListener('DOMContentLoaded', (getBoots) => {
-    
-})
-
+let bootCollection = document.querySelector('.boot-collection')
+                                        
+document.addEventListener('DOMContentLoaded',getBoots)
+     
     //get all data of boots JSON
-    function getBoots() {
+    function getBoots(){
         fetch('http://localhost:3000/boots')
         .then(resp => resp.json())
-        .then (bootData => bootData.forEach (bootObj => {
-            createBootCard(bootObj)
-        }))
+        .then(bootData => bootData.forEach(bootObj => 
+            createBootCard(bootObj),
+        ))
     }
 
-    function createBootCard(bootObj) {
+    function createBootCard(boots) {
         let div = document.createElement('div')
             div.className = 'card'
 
         let h3 = document.createElement('h3')
-            h3.innerText= bootObj.name 
+            h3.innerText= boots.name 
 
         let img = document.createElement('img')
-            img.src = bootObj.img
+            img.src = boots.image
             img.className = 'boots-avatar'
 
         let p = document.createElement('p')
-            p.textContent = bootObj.color
+            p.innerText = boots.color
 
         //a remove boots button - fetch delete request
-        let btn = document.querySelector('button')
-             btn.className = 'remove-button'
-             btn.id = bootObj.id
+        let btn = document.createElement('button')
+             btn.className= 'remove-button'
+             btn.id = boots.id
             btn.textContent = 'remove'
-             btn.addEventListener(
-                fetch(' http://localhost:3000/boots'+ id, {
-                    method: 'DELETE'
-                })
-                .then(r => r.json())
-                .then(r => console.log(r)) ,
+             deleteBoots(btn)
+             div.append(btn)
 
-            patchBootObj(bootObj)
-        )
-        div.append(btn)
-
-
-        let bootCollection = document.querySelector('#boots-collection')
+    //    let bootCollection = document.querySelector('#boots-collection')
             div.append(h3,img,p,btn)
              bootCollection.append(div)
     }
 
-        let submitBoots = document.querySelector('form')
-            submitBoots.addEventListener('submit', createNewBootObj)
-            function createNewBootObj(e) {
-            let newBootObj = {
-                'name' : e.target.name.value ,
-                'color' : e.target.color.value ,
-                'image' : e.target.image.value ,
+    function deleteBoots(){
+        addEventListener('click',() => 
+        fetch(`http://localhost:3000/boots/${boots.id}`,{
+            method: 'DELETE',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(boots)
+        })
+        .then(r => r.json())
+        .then(r => console.log(r)) 
+     )}
 
+        let submitBootObj = document.querySelector('form')
+            submitBootObj.addEventListener('submit', createNewBootObj)
+            function createNewBootObj(e) {
+                e.preventDefault()
+                
+            let newBootObj = {
+                'name':e.target.name,
+                'color':e.target.color,
+                'image':e.target.image,
             }
             submitNewBootObj(newBootObj)
         }
 
         function submitNewBootObj(newBootObj) {
-            fetch('http://localhost:3000/boots', {
+            fetch(`http://localhost:3000/boots/${boots.id}`, {
                 method: 'POST' ,
-                headers: {
+                headers:{
                     'Content-Type': 'application/json',
                     Accept:'application/json' ,
                 },
@@ -72,17 +75,5 @@ document.addEventListener('DOMContentLoaded', (getBoots) => {
             })
             .then(r => r.json())
             .then((bootData) => createBootCard(bootData))
+            //bootData??
         }
-
-        function patchBootObj(bootObj) {
-            fetch(`http://localhost:3000/boots${bootObj.id}`, {
-                method: 'PATCH' ,
-                headers: {
-                    'Content-type': 'application/json' ,
-                    Accept:'appliction/json' ,
-                },
-                body:JSON.stringify(bootObj)
-            })
-            console.log(patchBootObj)
-        }
-
