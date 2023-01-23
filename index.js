@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded',getBoots)
         let p = document.createElement('p')
             p.innerText = boots.color
 
+        let p2 = document.createElement('p2')
+        p2.innerText = boots.price
+        
         //a remove boots button - fetch delete request
         let removeBtn = document.createElement('button')
              removeBtn.className= 'remove-button'
