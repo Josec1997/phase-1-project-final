@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded',getBoots)
 
         
     function createBootCard(boots) {
-        let div = document.createElement('div')
-            div.className = `${boots.name}`
-            div.id = boots.id
-
         let h3 = document.createElement('h3')
-            h3.innerText= boots.name 
+            h3.className = `${boots.name}`
+            h3.id = boots.id
+
+        let h4 = document.createElement('h4')
+            h4.innerText= boots.name 
 
         let img = document.createElement('img')
             img.src = boots.image
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded',getBoots)
               deleteCard.remove()
               alert(`${boots.name} Got the Boot!`)
              })
-             div.append(removeBtn)
+             h3.append(removeBtn)
 
 
          let bootCollection = document.querySelector('#boot-collection')
-            div.append(h3,img,p,removeBtn)
-             bootCollection.append(div)
+            h3.append(h4,img,p,removeBtn)
+             bootCollection.append(h3)
     }
 
     function deleteBoots(e){ 
