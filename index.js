@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded',getBoots)
         .then(resp => resp.json())
         .then(bootData => bootData.forEach(bootObj => 
             createBootCard(bootObj)))
-        }
-
         
     function createBootCard(boots) {
         let h3 = document.createElement('h3')
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded',getBoots)
 
         let p2 = document.createElement('p2')
         p2.innerText = boots.price
-        
+
         //a remove boots button - fetch delete request
         let removeBtn = document.createElement('button')
              removeBtn.className= 'remove-button'
@@ -39,7 +37,6 @@ document.addEventListener('DOMContentLoaded',getBoots)
               alert(`${boots.name} Got the Boot!`)
              })
              h3.append(removeBtn)
-
 
          let bootCollection = document.querySelector('#boot-collection')
             h3.append(h4,img,p,removeBtn)
@@ -60,18 +57,7 @@ document.addEventListener('DOMContentLoaded',getBoots)
 
         let submitBootObj = document.querySelector('form')
             submitBootObj.addEventListener('submit', submitNewBootObj)
-            // function createNewBootObj(e) {
-                // e.preventDefault()
-                
-        //     let newBootObj = {
-        //         'name':e.target.name.value,
-        //         'color':e.target.color.value,
-        //         'image':e.target.image.value,
-                
-        //     }
-        //     submitNewBootObj(newBootObj)
-        // }
-
+          
         function submitNewBootObj(newBootObj) {
             newBootObj.preventDefault()
             let name = newBootObj.target.name.value
@@ -93,3 +79,4 @@ document.addEventListener('DOMContentLoaded',getBoots)
             .then(r => r.json())
             .then((bootData) => createBootCard(bootData))
         }
+    }
