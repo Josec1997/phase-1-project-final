@@ -10,5 +10,5 @@ The backend of the project is mocked up by a json server, the user then is free 
 
 ## Project Content
 Files in project: js/html/css-style/json.
-Events Listeners: 'DOMContentLoaded','Click', 'Submit'(s)
+Events Listeners: 'DOMContentLoaded','Click', 'Submit'
 Array Method executed: forEach()
