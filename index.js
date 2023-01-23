@@ -1,15 +1,12 @@
-let bootCollection = document.querySelector('.boot-collection')
-                                        
 document.addEventListener('DOMContentLoaded',getBoots)
-     
+
     //get all data of boots JSON
     function getBoots(){
         fetch('http://localhost:3000/boots')
         .then(resp => resp.json())
         .then(bootData => bootData.forEach(bootObj => 
-            createBootCard(bootObj),
-        ))
-    }
+            createBootCard(bootObj)))
+        }
 
     function createBootCard(boots) {
         let div = document.createElement('div')
@@ -26,15 +23,15 @@ document.addEventListener('DOMContentLoaded',getBoots)
             p.innerText = boots.color
 
         //a remove boots button - fetch delete request
-        let btn = document.createElement('button')
-             btn.className= 'remove-button'
-             btn.id = boots.id
-            btn.textContent = 'remove'
-             deleteBoots(btn)
-             div.append(btn)
+        let removeBtn = document.createElement('button')
+             removeBtn.className= 'remove-button'
+             removeBtn.id = boots.id
+             removeBtn.textContent = 'remove'
+             deleteBoots(removeBtn)
+             div.append(removeBtn)
 
-    //    let bootCollection = document.querySelector('#boots-collection')
-            div.append(h3,img,p,btn)
+         let bootCollection = document.querySelector('.boot-collection')
+            div.append(h3,img,p,removeBtn)
              bootCollection.append(div)
     }
 
@@ -57,9 +54,10 @@ document.addEventListener('DOMContentLoaded',getBoots)
                 e.preventDefault()
                 
             let newBootObj = {
-                'name':e.target.name,
-                'color':e.target.color,
-                'image':e.target.image,
+                'name':e.target.name.value,
+                'color':e.target.color.value,
+                'image':e.target.image.value,
+                //delete .value
             }
             submitNewBootObj(newBootObj)
         }
@@ -75,5 +73,4 @@ document.addEventListener('DOMContentLoaded',getBoots)
             })
             .then(r => r.json())
             .then((bootData) => createBootCard(bootData))
-            //bootData??
         }
