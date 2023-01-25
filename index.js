@@ -78,4 +78,4 @@ document.addEventListener('DOMContentLoaded',getBoots)
         .then(r => r.json())
         .then((bootData) => createBootCard(bootData))
         }
-    }
+}
